@@ -7,8 +7,8 @@
 /dataSources/
 /dataSources.local.xml
 #IDE
-.idea
-.vscode
+.idea/
+.vscode/
 
 # Dependency directories
 node_modules/

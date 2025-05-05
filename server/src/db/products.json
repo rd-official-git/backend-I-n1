@@ -1,0 +1,32 @@
+[
+  {
+    "id": 3,
+    "title": "table",
+    "description": "tables for study",
+    "code": "code0943",
+    "price": 100,
+    "status": true,
+    "stock": 10,
+    "category": "Furniture",
+    "thumbnails": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "chair",
+    "description": "chairs to sit on",
+    "code": "code0946",
+    "price": 60,
+    "status": true,
+    "stock": 40,
+    "category": "Furniture",
+    "thumbnails": [
+      "a",
+      "b",
+      "c"
+    ]
+  }
+]
