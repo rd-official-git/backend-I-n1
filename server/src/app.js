@@ -8,7 +8,7 @@ const PORT = 8080
 
 try {
     app.listen(PORT);
-    console.log(`Backend server listening on port http://localhost/${PORT}`);
+    console.log(`Backend server listening on port http://localhost:${PORT}`);
 } catch (error) {
     console.log(`Server encountered an error: ${error.message}`);
 }
