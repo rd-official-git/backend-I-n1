@@ -1,6 +1,6 @@
 [
   {
-    "id": 3,
+    "id": 1,
     "title": "table",
     "description": "tables for study",
     "code": "code0943",
@@ -15,7 +15,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 2,
     "title": "chair",
     "description": "chairs to sit on",
     "code": "code0946",
@@ -23,6 +23,21 @@
     "status": true,
     "stock": 40,
     "category": "Furniture",
+    "thumbnails": [
+      "a",
+      "b",
+      "c"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "fan",
+    "description": "fans for the air",
+    "code": "code0876",
+    "price": 130,
+    "status": true,
+    "stock": 50,
+    "category": "Electrodomestic products",
     "thumbnails": [
       "a",
       "b",

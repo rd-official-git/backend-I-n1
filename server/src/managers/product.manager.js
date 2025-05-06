@@ -46,7 +46,6 @@ class ProductManager {
         } catch (error) {
             console.error(error);
         }
-
     };
 
     updateProductById = async (pid, request_body) => {
