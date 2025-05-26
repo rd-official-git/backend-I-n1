@@ -1,16 +1,22 @@
 const express = require("express");
 const app = express();
+const handlebars = require("express-handlebars");
+const path = require("path");
 
-const router = require("./routes/index");
+app.engine(
+    "hbs",
+    handlebars.engine({
+        extname: ".hbs",
+        defaultLayout: "main",
+    })
+);
+
+app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "views"));
+
 app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
-const PORT = 8080
+app.use("/public", express.static(path.join(__dirname, "public")));
 
-try {
-    app.listen(PORT);
-    console.log(`Backend server listening on port http://localhost:${PORT}`);
-} catch (error) {
-    console.log(`Server encountered an error: ${error.message}`);
-}
-
-app.use(router);
+module.exports = app;
