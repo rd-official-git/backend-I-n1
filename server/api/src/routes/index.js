@@ -5,6 +5,7 @@ const app = require("../app.js")
 
 const products = require("./product.route");
 const carts = require("./cart.route");
+const {getProductService} = require("../services/product.service");
 
 // router.get("/", function (req, res) {
 //     res.send(`<div style='text-align: center; margin-top: 20%; font-size: 2em; font-family: sans-serif;'>
@@ -15,18 +16,31 @@ const carts = require("./cart.route");
 // });
 
 router.get("/", (req, res) => {
-    return res.render("pages/home", {});
+    try {
+        return res.render("pages/home", {});
+    } catch (err) {
+        console.error(err);
+    }
 });
 
 router.use("/api/products", products);
 router.use("/api/carts", carts);
 
 router.get("/waterlilies", (req, res) => {
-    return res.render("pages/waterlilies");
+    try {
+        res.render("pages/waterlilies");
+    } catch (err) {
+        console.error(err);
+    }
 });
 
-router.get("/realtimeproducts", (req, res) => {
-    return res.render("pages/realTimeProducts.hbs",);
+router.get("/realtimeproducts", async (req, res) => {
+    try {
+        const all_products = await getProductService();
+        res.render("pages/realTimeProducts.hbs", {realTimeProductList: all_products});
+    } catch (err) {
+        console.error(err);
+    }
 });
 
 app.use(router);

@@ -8,7 +8,7 @@ const getProductController = async (req, res) => {
         if (!products) {
             return res.status(404).json({message: "No products found"});
         }
-        res.status(200).json({status: "success", payload: products});
+        return res.status(200).json({status: "success", payload: products});
     } catch (error) {
         res.status(500).json({status: "error", message: error.message});
     }

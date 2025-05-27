@@ -1,0 +1,17 @@
+{{> header}}
+<div class="">
+    <h1>Here is the current list of products:</h1>
+    <div class="list-products">
+        <ul>
+            {{#each realTimeProductList}}
+                <div>
+                    {{this.id}}
+                    {{this.title}}
+                    {{this.price}}
+                    {{this.stock}}
+                </div>
+            {{/each}}
+        </ul>
+    </div>
+</div>
+{{> footer}}
