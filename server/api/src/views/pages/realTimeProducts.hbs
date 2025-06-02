@@ -2,7 +2,7 @@
 <div class="">
     <h1>Here is the current list of products:</h1>
     <div class="list-products">
-        <ul>
+        <ul id="product-list">
             {{#each realTimeProductList}}
                 <div>
                     {{this.id}}
@@ -13,5 +13,7 @@
             {{/each}}
         </ul>
     </div>
+    {{> addProduct}}
+    {{> deleteProduct}}
 </div>
 {{> footer}}

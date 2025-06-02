@@ -5,7 +5,7 @@ const app = require("../app.js")
 
 const products = require("./product.route");
 const carts = require("./cart.route");
-const {getProductService} = require("../services/product.service");
+const {getProductService, addProductService} = require("../services/product.service");
 
 // router.get("/", function (req, res) {
 //     res.send(`<div style='text-align: center; margin-top: 20%; font-size: 2em; font-family: sans-serif;'>
@@ -43,13 +43,24 @@ router.get("/realtimeproducts", async (req, res) => {
     }
 });
 
+router.post("/add", async (req, res) => {
+    const data = await addProductService(req.body);
+    server.emit("update", data);
+    res.redirect("/realtimeproducts");
+});
+
 app.use(router);
+
+const http = require("http");
+const server = http.createServer(app);
 
 const PORT = 8080
 
 try {
-    app.listen(PORT);
+    server.listen(PORT);
     console.log(`Backend server listening on port http://localhost:${PORT}`);
 } catch (error) {
     console.log(`Server encountered an error: ${error.message}`);
 }
+
+module.exports = server;

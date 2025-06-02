@@ -31,7 +31,7 @@ class ProductManager {
             const current_content = await this.op.fread();
 
             let current_file_length = current_content.length;
-
+            console.log(request_body);
             for (const item of request_body) {
 
                 const {title, description, code, price, status, stock, category, thumbnails} = item;
