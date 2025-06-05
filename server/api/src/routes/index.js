@@ -45,8 +45,9 @@ router.get("/realtimeproducts", async (req, res) => {
 
 router.post("/realtimeproducts/add", async (req, res) => {
     try {
+        console.log(`in router req.body received ${req.body}`);
         const data = await addProductService(req.body);
-        console.log(`route data received ${data}`);
+        console.log(`in router data received ${data}`);
         server.emit("update", data);
         res.redirect("/realtimeproducts");
     } catch (error) {

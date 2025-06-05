@@ -23,6 +23,7 @@
                 const jsonObject = JSON.parse(textareaValue);
                 document.getElementById("productDetails").textContent = JSON.stringify(jsonObject, null, 2);
                 console.log(`Converted JSON: ${jsonObject}`);
+                socket.emit("", jsonObject);
             } catch (error) {
                 document.getElementById("productDetails").textContent = "Incorrect JSON";
                 console.error(`Error converting to JSON: ${error}`);

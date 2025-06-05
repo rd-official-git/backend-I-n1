@@ -1,6 +1,9 @@
-const socket = io();
+console.log(`We are in our client side script`)
+const socket = io("http://localhost:8000");
+console.log(`socket: ${socket}`);
 
 socket.on("update", (realTimeProductList) => {
+    console.log(`update event received for socket.id ${socket.id} and data ${realTimeProductList}`);
     const list = document.getElementById("product-list");
     list.innerHTML = "";
     realTimeProductList.forEach(item => {
