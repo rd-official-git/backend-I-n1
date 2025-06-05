@@ -34,9 +34,9 @@
     "title": "fan",
     "description": "fans for the air",
     "code": "code0876",
-    "price": 130,
+    "price": 250,
     "status": true,
-    "stock": 50,
+    "stock": 80,
     "category": "Electrodomestic products",
     "thumbnails": [
       "a",

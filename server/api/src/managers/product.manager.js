@@ -26,12 +26,9 @@ class ProductManager {
 
     addProducts = async (request_body) => {
         try {
-            let new_product_entries = []
+            let new_product_entries = await this.op.fread();
 
-            const current_content = await this.op.fread();
-
-            let current_file_length = current_content.length;
-            console.log(request_body);
+            let current_file_length = new_product_entries.length;
             for (const item of request_body) {
 
                 const {title, description, code, price, status, stock, category, thumbnails} = item;

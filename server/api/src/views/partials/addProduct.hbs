@@ -1,7 +1,7 @@
 <div class="add-product">
     <h1>Add Product</h1>
     <div id="formDiv">
-        <form action="/add" method="POST" id="addProductForm">
+        <form action="/realtimeproducts/add" method="POST" id="addProductForm">
             <fieldset>
                 <legend>Product details</legend>
                 <div class="form-group">
@@ -9,11 +9,27 @@
                     <br>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn-submit" id="btnSubmit">Add</button>
+                    <button type="submit" class="btn-submit" id="btnSubmit" onclick="convertToJson()">Add</button>
                 </div>
             </fieldset>
         </form>
     </div>
+
+    <script>
+        function convertToJson() {
+            const textareaValue = document.getElementById("productDetails").value;
+            console.log(`textareaValue: ${textareaValue}`);
+            try {
+                const jsonObject = JSON.parse(textareaValue);
+                document.getElementById("productDetails").textContent = JSON.stringify(jsonObject, null, 2);
+                console.log(`Converted JSON: ${jsonObject}`);
+            } catch (error) {
+                document.getElementById("productDetails").textContent = "Incorrect JSON";
+                console.error(`Error converting to JSON: ${error}`);
+            }
+
+        }
+    </script>
 </div>
 
 <!--<script>-->

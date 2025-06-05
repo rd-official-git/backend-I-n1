@@ -1,4 +1,4 @@
-const socket = io("http://localhost:8080");
+const socket = io();
 
 socket.on("update", (realTimeProductList) => {
     const list = document.getElementById("product-list");

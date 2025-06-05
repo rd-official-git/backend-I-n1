@@ -7,13 +7,16 @@ const products = require("./product.route");
 const carts = require("./cart.route");
 const {getProductService, addProductService} = require("../services/product.service");
 
-// router.get("/", function (req, res) {
-//     res.send(`<div style='text-align: center; margin-top: 20%; font-size: 2em; font-family: sans-serif;'>
-//         <h1>Welcome to the main server API</h1>
-//         <p>To see a list of products please click <a href="http://localhost:8080/api/products">/products</a></p>
-//         <p>To see a list of carts please click <a href="http://localhost:8080/api/carts">/carts</a></p>
-//         </div>`);
-// });
+router.get("/api", function (req, res) {
+    res.send(`<div style='text-align: center; margin-top: 20%; font-size: 2em; font-family: sans-serif;'>
+        <h1>Welcome to the main server API</h1>
+        <p>To see a list of products please click <a href="http://localhost:8080/api/products">/products</a></p>
+        <p>To see a list of carts please click <a href="http://localhost:8080/api/carts">/carts</a></p>
+        </div>`);
+});
+
+router.use("/api/products", products);
+router.use("/api/carts", carts);
 
 router.get("/", (req, res) => {
     try {
@@ -22,9 +25,6 @@ router.get("/", (req, res) => {
         console.error(err);
     }
 });
-
-router.use("/api/products", products);
-router.use("/api/carts", carts);
 
 router.get("/waterlilies", (req, res) => {
     try {
@@ -43,10 +43,15 @@ router.get("/realtimeproducts", async (req, res) => {
     }
 });
 
-router.post("/add", async (req, res) => {
-    const data = await addProductService(req.body);
-    server.emit("update", data);
-    res.redirect("/realtimeproducts");
+router.post("/realtimeproducts/add", async (req, res) => {
+    try {
+        const data = await addProductService(req.body);
+        console.log(`route data received ${data}`);
+        server.emit("update", data);
+        res.redirect("/realtimeproducts");
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 app.use(router);
