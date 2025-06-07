@@ -1,5 +1,5 @@
 console.log(`We are in our client side script`)
-const socket = io("http://localhost:8000");
+const socket = io("http://http://localhost:8080/");
 console.log(`socket: ${socket}`);
 
 socket.on("update", (realTimeProductList) => {

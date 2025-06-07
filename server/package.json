@@ -2,6 +2,10 @@
   "name": "server",
   "version": "1.0.0",
   "main": "api/src/routes/index.js",
+  "engines": {
+    "node": ">=22.15.0",
+    "npm": ">=10.9.2"
+  },
   "scripts": {
     "dev": "nodemon api/src/app.js",
     "start": "node api/src/routes/index.js",
@@ -20,6 +24,7 @@
     "moment": "^2.30.1",
     "path": "^0.12.7",
     "socket.io": "^4.8.1",
+    "socket.io-client": "^4.8.1",
     "websocket": "^1.0.35"
   }
 }
